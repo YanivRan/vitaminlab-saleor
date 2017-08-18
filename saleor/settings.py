@@ -99,6 +99,9 @@ context_processors = [
     'saleor.core.context_processors.webpage_schema',
     'social_django.context_processors.backends',
     'social_django.context_processors.login_redirect',
+    #"saleor.core.context_processors.whitelabel_processor",
+    "saleor.site.context_processors.whitelabel_processor",
+    "saleor.cart.context_processors.whitelabel_processor",
 ]
 
 loaders = [

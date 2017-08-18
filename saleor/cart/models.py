@@ -55,7 +55,6 @@ class CartQueryset(models.QuerySet):
             'lines__variant__product__product_class__variant_attributes__values',  # noqa
             'lines__variant__stock')
 
-
 class Cart(models.Model):
     status = models.CharField(
         pgettext_lazy('Cart field', 'order status'),

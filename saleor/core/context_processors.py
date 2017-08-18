@@ -33,25 +33,6 @@ def categories(request):
 def search_enabled(request):
     return {'SEARCH_IS_ENABLED': bool(settings.SEARCH_BACKENDS)}
 
-def whitelabel_processor(request):
-    current_domain = request.get_host() 
-    whitelabel = Whitelabel.objects.filter(primary_domain=current_domain).order_by('id')
-
-    if whitelabel.count() != 0:
-        config = {
-            'SITE_NAME': whitelabel[0].name, 
-            'SITE_LOGO': whitelabel[0].logo, 
-            'SITE_DOMAIN': whitelabel[0].primary_domain
-            }
-    else:
-        config = {
-            'SITE_NAME': 'MY SITE', 
-            'SITE_LOGO': '/static/images/logo.png', 
-            'SITE_DOMAIN': 'http://%s' % Site.objects.get_current().domain
-            }
-
-    return config
-
 
 def webpage_schema(request):
     site_settings = get_site_settings_from_request(request)

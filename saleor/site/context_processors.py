@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 
 from .utils import get_site_settings_from_request
+from ..site.models import Whitelabel
+from django.contrib.sites.models import Site
 
 
 def settings(request):
@@ -20,8 +22,8 @@ def whitelabel_processor(request):
             }
     else:
         config = {
-            'SITE_NAME': 'MY SITE', 
-            'SITE_LOGO': '/static/images/logo.png', 
+            'SITE_NAME': 'GetVitaminLab', 
+            'SITE_LOGO': 'images/saleor_logo.svg', 
             'SITE_DOMAIN': 'http://%s' % Site.objects.get_current().domain
             }
 
