@@ -44,3 +44,10 @@ class AuthorizationKey(models.Model):
 
     def key_and_secret(self):
         return self.key, self.password
+
+@python_2_unicode_compatible
+class Whitelabel(models.Model):
+    name = models.CharField(max_length=255, null=False)
+    logo = models.CharField(max_length=255, null=True, blank=True)
+    primary_domain = models.CharField(max_length=256, null=False) 
+
